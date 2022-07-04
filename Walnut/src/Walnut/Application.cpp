@@ -539,6 +539,21 @@ namespace Walnut {
 		g_ApplicationRunning = false;
 	}
 
+	void Application::disableMouse(bool disableM) {
+		if(disableM) {
+			if(glfwGetInputMode(m_WindowHandle, GLFW_CURSOR) == GLFW_CURSOR_DISABLED) {
+				return;
+			}
+			glfwSetInputMode(m_WindowHandle, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		}
+		else {
+			if(glfwGetInputMode(m_WindowHandle, GLFW_CURSOR) == GLFW_CURSOR_NORMAL) {
+				return;
+			}
+			glfwSetInputMode(m_WindowHandle, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		}
+	}
+
 	void Application::Run()
 	{
 		m_Running = true;
@@ -633,7 +648,7 @@ namespace Walnut {
 				}
 
 				for (auto& layer : m_LayerStack)
-					layer->OnUIRender();
+					layer->OnUIRender(this);
 
 				ImGui::End();
 			}

@@ -32,6 +32,8 @@ namespace Walnut {
 		void Run();
 		void SetMenubarCallback(const std::function<void()>& menubarCallback) { m_MenubarCallback = menubarCallback; }
 		
+		void disableMouse(bool disableM);
+
 		template<typename T>
 		void PushLayer()
 		{
