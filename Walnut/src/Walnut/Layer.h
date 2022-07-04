@@ -14,7 +14,7 @@ namespace Walnut {
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 
-		virtual void OnUIRender(Application* app) {}
+		virtual void OnUIRender(Application* app=nullptr) {}
 	};
 
 }
